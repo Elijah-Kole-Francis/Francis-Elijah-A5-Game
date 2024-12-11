@@ -14,6 +14,15 @@ config/name="Francis-Elijah-A5-Game"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=600
+
 [dotnet]
 
 project/assembly_name="Francis-Elijah-A5-Game"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/2d_shapes/plugin.cfg")

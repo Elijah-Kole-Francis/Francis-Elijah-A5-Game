@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6ejys51o3wrq"]
+
+[ext_resource type="Script" path="res://addons/2d_shapes/shapes/Rectangle.gd" id="1_kjmja"]
+[ext_resource type="Script" path="res://addons/2d_shapes/shapes/Ellipse.gd" id="2_3xd6i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cydvu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rhxl"]
+size = Vector2(20, 574)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lv5fh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pflhx"]
+
+[node name="Pongers" type="Node2D"]
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Walls" type="Node2D" parent="Level"]
+
+[node name="Top Wall" type="StaticBody2D" parent="Level/Walls"]
+position = Vector2(400, 10)
+scale = Vector2(39.604, 0.9)
+
+[node name="Rectangle" type="Node2D" parent="Level/Walls/Top Wall"]
+script = ExtResource("1_kjmja")
+size = Vector2(20, 20)
+corner_radius = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Walls/Top Wall"]
+shape = SubResource("RectangleShape2D_cydvu")
+
+[node name="Bottom wall" type="StaticBody2D" parent="Level/Walls"]
+position = Vector2(400, 590)
+scale = Vector2(39.604, 0.9)
+
+[node name="Rectangle" type="Node2D" parent="Level/Walls/Bottom wall"]
+script = ExtResource("1_kjmja")
+size = Vector2(20, 20)
+corner_radius = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Walls/Bottom wall"]
+shape = SubResource("RectangleShape2D_cydvu")
+
+[node name="Area2D" type="Area2D" parent="Level"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Area2D"]
+position = Vector2(10, 302)
+shape = SubResource("RectangleShape2D_0rhxl")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Level/Area2D"]
+position = Vector2(790, 300)
+shape = SubResource("RectangleShape2D_0rhxl")
+
+[node name="Pong Ball" type="Node2D" parent="."]
+position = Vector2(400, 300)
+
+[node name="Pong Ball Rigidbody" type="RigidBody2D" parent="Pong Ball"]
+gravity_scale = 0.0
+
+[node name="Ellipse" type="Node2D" parent="Pong Ball/Pong Ball Rigidbody"]
+script = ExtResource("2_3xd6i")
+size = Vector2(20, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pong Ball/Pong Ball Rigidbody"]
+shape = SubResource("CircleShape2D_lv5fh")
+
+[node name="Paddles" type="Node2D" parent="."]
+
+[node name="Left Paddle" type="RigidBody2D" parent="Paddles"]
+position = Vector2(70, 300)
+
+[node name="Rectangle" type="Node2D" parent="Paddles/Left Paddle"]
+scale = Vector2(0.6, 5)
+script = ExtResource("1_kjmja")
+size = Vector2(20, 20)
+corner_radius = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddles/Left Paddle"]
+scale = Vector2(0.6, 5)
+shape = SubResource("RectangleShape2D_pflhx")
+
+[node name="Right Paddle" type="RigidBody2D" parent="Paddles"]
+position = Vector2(723, 300)
+
+[node name="Rectangle" type="Node2D" parent="Paddles/Right Paddle"]
+scale = Vector2(0.6, 5)
+script = ExtResource("1_kjmja")
+size = Vector2(20, 20)
+corner_radius = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddles/Right Paddle"]
+scale = Vector2(0.6, 5)
+shape = SubResource("RectangleShape2D_pflhx")
