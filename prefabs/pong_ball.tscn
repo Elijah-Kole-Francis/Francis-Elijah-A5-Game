@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpsnwptb0iatq"]
+
+[ext_resource type="Script" path="res://scenes/PongBall.cs" id="1_2pyvm"]
+[ext_resource type="Script" path="res://addons/2d_shapes/shapes/Ellipse.gd" id="2_1hojt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lv5fh"]
+
+[node name="Pong Ball" type="Node2D"]
+position = Vector2(400, 300)
+script = ExtResource("1_2pyvm")
+
+[node name="Pong Ball Rigidbody" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+
+[node name="Ellipse" type="Node2D" parent="Pong Ball Rigidbody"]
+script = ExtResource("2_1hojt")
+size = Vector2(20, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pong Ball Rigidbody"]
+shape = SubResource("CircleShape2D_lv5fh")
